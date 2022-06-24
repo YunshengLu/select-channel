@@ -34,9 +34,15 @@ export const Tab = styled.div`
         display: flex;
         align-items: center;
         vertical-align: top;
-        opacity: 0.4;
     }
     .content {
         font-weight: 600;
+    }
+    .noChange {
+        opacity: 0.4;
+    }
+    .changeItem {
+        color: #0b8cf1;
+        opacity: 0.8;
     }
 `;

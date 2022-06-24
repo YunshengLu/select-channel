@@ -16,7 +16,8 @@ export default function SelectChannel() {
             checked: true,
         },
     ]);
-    const [loading,setLoading]=useState(false)
+    const [loading,setLoading] = useState(false)
+    const [change,setChange] = useState(false)
 
     // 筛选出已选择和未选择项
     const TrueCheck = list.filter(item => item.checked == true);
@@ -39,12 +40,13 @@ export default function SelectChannel() {
     }
 
     // 选择
-    const changed = item => {
+    const choose = item => {
         // console.log('--------');
         let idx = list.findIndex(data => item.id === data.id);
         // console.log(idx);
         list[idx].checked = !list[idx].checked;
         setList([...list]);
+        setChange(true)
     };
 
     // 删除已选择项
@@ -57,6 +59,7 @@ export default function SelectChannel() {
         }else{
             list[idx].checked = !list[idx].checked;
             setList([...list]);
+            setChange(true)
         }
     };
 
@@ -78,18 +81,19 @@ export default function SelectChannel() {
             return arrayMove(items, oldIndex, newIndex)
         })
         }
+        setChange(true)
     }
 
     return (
         <>
             {modal()}
-            <Header />
+            <Header change={change} />
             <Content data={list} 
                 deleteList={deleteList} 
                 handleDragEnd={handleDragEnd} 
                 />
             <Footer data={list} 
-                changed={changed} 
+                choose={choose} 
                 FalseCheck={FalseCheck} 
                 />
         </>

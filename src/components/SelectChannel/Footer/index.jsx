@@ -4,7 +4,7 @@ import { FooterWrapper, TabWrapper } from './style'
 
 export default function Footer(props) {
 
-    const { data, changed, FalseCheck } = props
+    const { data, choose, FalseCheck } = props
 
     return (
         <FooterWrapper>
@@ -18,7 +18,7 @@ export default function Footer(props) {
                 </header>
             </TabWrapper>
             }
-            <ContentList data={data} changed={changed} />
+            <ContentList data={data} choose={choose} />
         </FooterWrapper>
     );
 }

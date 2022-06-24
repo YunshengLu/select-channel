@@ -6,7 +6,7 @@ import {
 
 export default function ContentList(props) {
 
-    const { data , changed } = props
+    const { data , choose } = props
 
     return (
         <Tab>
@@ -16,7 +16,7 @@ export default function ContentList(props) {
                     <TabItem key={item.id}>
                         <img src={item.img} alt="" />
                         <span>{item.title}</span>
-                        <i className="iconfont icon-tianjia" onClick={() => changed(item)}></i>
+                        <i className="iconfont icon-tianjia" onClick={() => choose(item)}></i>
                     </TabItem>
                 )
             }
